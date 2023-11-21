@@ -128,7 +128,7 @@ class HBNBCommand(cmd.Cmd):
             param = split_arg[i].split('=')
             if param[1].startswith('"') and param[1].endswith('"'):
                 param[1] = param[1][1:-1].replace('\\"', '"')
-                param[1] = param[1].replace('_',' ')
+                param[1] = param[1].replace('_', ' ')
             elif '.' in param[1]:
                 param[1] = float(param[1])
             else:
@@ -329,6 +329,7 @@ class HBNBCommand(cmd.Cmd):
         """ Help information for the update class """
         print("Updates an object with new information")
         print("Usage: update <className> <id> <attName> <attVal>\n")
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()

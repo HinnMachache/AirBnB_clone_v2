@@ -1,4 +1,4 @@
----Script that prepares the test database server for my airbnb project---
+---Script that prepares the test database server for my airbnb project
 CREATE DATABASE IF NOT EXISTS hbnb_test_db;
 CREATE USER IF NOT EXISTS 'hbnb_test'@'localhost' IDENTIFIED BY 'hbnb_test_pwd';
 USE hbnb_test_db;

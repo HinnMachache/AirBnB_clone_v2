@@ -1,4 +1,4 @@
----Script that prepares the database server for my airbnb project---
+---Script that prepares the database server for my airbnb project
 CREATE DATABASE IF NOT EXISTS hbnb_dev_db;
 CREATE USER IF NOT EXISTS 'hbnb_dev'@'localhost' IDENTIFIED BY 'hbnb_dev_pwd';
 USE hbnb_dev_db;
