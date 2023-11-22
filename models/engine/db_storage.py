@@ -41,7 +41,6 @@ class DBStorage:
             query = self.__session.query(eval(cls))
             for data in query:
                 key = "{}.{}".format(type(data).__name__, data.id)
-                print(key)
                 dic[key] = data
                 del dic[key]._sa_instance_state
         else:
