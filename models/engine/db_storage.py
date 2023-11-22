@@ -42,14 +42,12 @@ class DBStorage:
             for data in query:
                 key = "{}.{}".format(type(data).__name__, data.id)
                 dic[key] = data
-                del dic[key]._sa_instance_state
         else:
             for obj in classes:
                 query = self.__session.query(obj)
                 for data in query:
                     key = "{}.{}".format(type(data).__name__, data.id)
                     dic[key] = data
-                    del dic[key]._sa_instance_state
         return dic
 
     def new(self, obj):
