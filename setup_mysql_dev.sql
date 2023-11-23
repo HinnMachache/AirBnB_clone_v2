@@ -1,9 +1,14 @@
 --Script to set up my db 
---Gives permissions to user after creating db
+-- Create the hbnb_dev_db database if it does not already exist
 CREATE DATABASE IF NOT EXISTS hbnb_dev_db;
-CREATE USER IF NOT EXISTS 'hbnb_dev'@'localhost';
-SET PASSWORD FOR 'hbnb_dev'@'localhost' = 'hbnb_dev_pwd';
-USE hbnb_dev_db;
-GRANT SELECT ON `performance_schema`.* TO 'hbnb_dev'@'localhost';
-GRANT ALL PRIVILEGES ON `hbnb_dev_db`.* TO 'hbnb_dev'@'localhost';
+
+-- Create the hbnb_dev user if it does not already exist, with the password hbnb_dev_pwd
+CREATE USER IF NOT EXISTS 'hbnb_dev'@'localhost' IDENTIFIED BY 'hbnb_dev_pwd';
+
+-- Grant all privileges
+GRANT ALL PRIVILEGES ON hbnb_dev_db.* TO 'hbnb_dev'@'localhost';
+FLUSH PRIVILEGES;
+
+-- Grant SELECT privilege
+GRANT SELECT ON performance_schema.* TO 'hbnb_dev'@'localhost';
 FLUSH PRIVILEGES;
