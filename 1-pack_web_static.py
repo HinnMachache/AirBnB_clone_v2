@@ -12,6 +12,7 @@ from fabric.api import local, runs_once
 
 @runs_once
 def do_pack():
+    """Function that packs web_static to .tgz archive"""
     if os.path.isdir("versions"):
         os.mkdir("versions")
 
