@@ -6,16 +6,13 @@ from the contents of the web_static folder
 
 
 import os
-import datetime
+from datetime import datetime
 from fabric.api import local, runs_once
 
 
 @runs_once
 def do_pack():
     """Function that packs web_static to .tgz archive"""
-    if os.path.isdir("versions"):
-        os.mkdir("versions")
-
     date = datetime.now()
     dest = "versions/web_static{}{}{}{}{}{}.tgz".format(
         date.year, date.month, date.day,
@@ -23,8 +20,9 @@ def do_pack():
     )
 
     try:
+        local("mkdir -p versions")
         print("Packing web_static to {}".format(dest))
-        local("tar -czvf {} web_static".format(dest))
+        local("tar -czvf {} web_static/".format(dest))
         print("web_static packed: {} -> {}Bytes".format(dest,
                                                         os.stat(dest).st_size))
     except Exception as e:
