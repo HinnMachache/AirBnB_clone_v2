@@ -6,8 +6,9 @@ This is a script that generates a .tgz archive from the contents of the web_stat
 
 import os
 import datetime
-from fabric.operations import local
+from fabric.api import local, runs_once
 
+@runs_once
 def do_pack():
     if os.path.isdir("versions"):
         os.mkdir("versions")
@@ -18,6 +19,10 @@ def do_pack():
         date.hour,date.minute,date.second
     )
 
-    print("Packing web_static to {}".format(dest))
-    local("tar -czvf {} web_static".format(dest))
-    print("web_static packed: {} ->".format(dest))
+    try:
+        print("Packing web_static to {}".format(dest))
+        local("tar -czvf {} web_static".format(dest))
+        print("web_static packed: {} -> {}Bytes".format(dest, os.stat(dest).st_size))
+    except Exception as e:
+        dest = None
+    return dest
