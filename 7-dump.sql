@@ -20,10 +20,10 @@ DROP DATABASE IF EXISTS hbnb_dev_db;
 
 -- Create database + user if doesn't exist
 CREATE DATABASE IF NOT EXISTS hbnb_dev_db;
-CREATE USER IF NOT EXISTS 'hbnb_dev'@'localhost';
-SET PASSWORD FOR 'hbnb_dev'@'localhost' = 'hbnb_dev_pwd';
-GRANT ALL ON hbnb_dev_db.* TO 'hbnb_dev'@'localhost';
-GRANT SELECT ON performance_schema.* TO 'hbnb_dev'@'localhost';
+CREATE USER IF NOT EXISTS 'popsicle'@'localhost';
+SET PASSWORD FOR 'popsicle'@'localhost' = 'mampii1234';
+GRANT ALL ON hbnb_dev_db.* TO 'popsicle'@'localhost' IDENTIFIED BY "mampii1234";
+GRANT SELECT ON performance_schema.* TO 'popsicle'@'localhost' IDENTIFIED BY "mampii1234";
 FLUSH PRIVILEGES;
 
 USE hbnb_dev_db;
