@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """This is the review class"""
-from sqlalchemy import Column, Integer, String, ForeignKey, MetaData
+from sqlalchemy import Column, String, ForeignKey
 from models.base_model import BaseModel, Base
 
 
