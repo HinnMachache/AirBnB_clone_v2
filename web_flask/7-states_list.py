@@ -21,7 +21,7 @@ def states_list():
 
 
 @app.teardown_appcontext
-def teardown_app():
+def teardown_app(args=None):
     # This closes down the session
     storage.close()
 
