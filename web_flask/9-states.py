@@ -17,7 +17,19 @@ def states_list():
     # This function returns a list of states
     data = storage.all(State)
     data = sorted(data.values(), key=lambda state: state.name)
-    return render_template('8-cities_by_states.html', data=data)
+    return render_template('9-states.html', data=data)
+
+
+@app.route('/states/<id>', strict_slashes=False)
+def states_id(id):
+    # This function returns a state with id passed in url
+    data = storage.all(State)
+    key = escape(id)
+    try:
+        state = data['State.' + key]
+    except Exception as e:
+        state = None
+    return render_template('9-states.html', state=state)
 
 
 @app.teardown_appcontext
