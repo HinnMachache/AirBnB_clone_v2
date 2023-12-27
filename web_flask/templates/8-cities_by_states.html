@@ -6,20 +6,14 @@
     <BODY>
         <H1>States</H1>
         <UL>
-
-            <LI>421a55f4-7d82-47d9-b54c-a76916479545: <B>Alabama</B>
-                <UL>
-                    {% for state in data %}
-                        <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
-                            <UL>
-                                {% for city in state.cities %}
-                                    <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
-                                {% endfor %}
-                            </UL>
-                    {% endfor %}
-                </UL>
-            </LI>
-
+                {% for state in data %}
+                    <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
+                        <UL>
+                            {% for city in state.cities %}
+                                <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
+                            {% endfor %}
+                        </UL>
+                {% endfor %}
         </UL>
     </BODY>
 </HTML>
