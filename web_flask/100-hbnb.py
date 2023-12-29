@@ -9,19 +9,22 @@ from markupsafe import escape
 from models import storage
 from models.state import State
 from models.amenity import Amenity
+from models.place import Place
 
 app = Flask(__name__)
 
 
-@app.route('/hbnb_filters', strict_slashes=False)
+@app.route('/hbnb', strict_slashes=False)
 def states_list():
     # This function returns a list of states
     state_v = storage.all(State)
     amenity = storage.all(Amenity)
+    places = storage.all(Place)
     state_v = sorted(state_v.values(), key=lambda state: state.name)
     amenity = sorted(amenity.values(), key=lambda resource: resource.name)
-    data = [state_v, amenity]
-    return render_template('10-hbnb_filters.html', data=data)
+    places = sorted(places.values(), key=lambda resource: resource.name)
+    data = [state_v, amenity, places]
+    return render_template('100-hbnb.html', data=data)
 
 
 @app.teardown_appcontext
